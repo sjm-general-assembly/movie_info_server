@@ -1,0 +1,6 @@
+<h1><%= @page_header %></h1>
+<ul>
+  <% @movie_list.each do |movie| %>
+  	<li><a href='/poster/<%= movie.id %>'><%= movie.title %> - <%= movie.year %></a></li>
+  <% end %>
+</ul>
