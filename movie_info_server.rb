@@ -13,7 +13,7 @@ get '/' do
   @page_title = "Movie Search"
   @page_header = "Find a Movie!"
 
-  erb :search_page
+  erb :search
 end
 
 post '/result' do
@@ -36,7 +36,7 @@ post '/result' do
   @page_title = "Movie Search Results"
   @page_header = "Movie Results"
   
-  erb :search_results
+  erb :results
 
 end
 
