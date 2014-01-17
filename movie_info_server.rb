@@ -2,14 +2,14 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'typhoeus'
 require 'json'
-require 'pry'
 require './movie'
+
+require 'pry'
 
 #
 # Create and display (on get) original movie search page / form
 #
 get '/' do
-  # practicing sending a parameter to an erb file
   @page_title = "Movie Search"
   @page_header = "Find a Movie!"
 
@@ -18,6 +18,7 @@ end
 
 post '/result' do
   search_str = params[:movie]
+  
 # binding.pry
 
   # Create a request to OMDB API, search (param is 's') for movie titles
