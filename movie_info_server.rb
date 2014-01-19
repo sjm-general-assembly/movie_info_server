@@ -69,3 +69,9 @@ get '/poster/:imdb_id' do |imdb_id|
 
 end
 
+get '/about' do
+  @page_title = "About"
+
+  erb :about
+
+end
