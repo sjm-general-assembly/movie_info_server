@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'typhoeus'
 require 'json'
-require './movie'
+require './imdb_movie'
 
 require 'pry'
 
@@ -18,6 +18,10 @@ end
 
 post '/result' do
   search_str = params[:movie]
+
+  # if no string has been entered, stay on same page
+  # (should post a message, and handle more gracefully)
+  redirect "/" if search_str.empty?
   
 # binding.pry
 
@@ -27,11 +31,18 @@ post '/result' do
   # store result in a hash, for better parsing
   result_hash = JSON.parse(response.body)
   # binding.pry
-  @movie_list = []
-  result_hash["Search"].each { |h| @movie_list << Movie.new(h["Title"], h["Year"], h["imdbID"]) }
 
-  # sort the movie list, before displaying
-  @movie_list.sort! { |x, y| x.year <=> y.year}
+  # {"Response"=>"False", "Error"=>"Movie not found!"}
+  if result_hash.empty? || result_hash.has_key?("Search") == false 
+    @page_error = true
+  else
+    @page_error = false 
+    @movie_list = []
+    result_hash["Search"].each { |h| @movie_list << IMDB_Movie.new(h["Title"], h["Year"], h["imdbID"]) }
+
+    # sort the movie list, before displaying
+    @movie_list.sort! { |x, y| x.year <=> y.year}
+  end
 
   @page_title = "Movie Search Results"
   @page_header = "Movie Results"
@@ -47,9 +58,9 @@ get '/poster/:imdb_id' do |imdb_id|
   # store result in a hash, for better parsing
   result_hash = JSON.parse(response.body)
 
-  # extract the poster URL
-  @poster_url = result_hash["Poster"]
-  # TODO  @movie_title = result_hash["Title"]   ???
+  # create a temp/local movie object to extract and store retrieved movie info
+  @movie = IMDB_Movie.new
+  @movie.get_imdb_fields(result_hash)
 
   @page_title = "Movie Search Results"
   @page_header = "Movie Results"  

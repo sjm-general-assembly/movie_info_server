@@ -1,6 +1,13 @@
 <h1><%= @page_header %></h1>
+<% if @page_error %>
+<p class='error_msg'> No results returned. Check movie title and try again.</p>
+<% else %>
 <ul>
   <% @movie_list.each do |movie| %>
-  	<li><a href='/poster/<%= movie.id %>'><%= movie.title %> - <%= movie.year %></a></li>
+  	<li><a href='/poster/<%= movie.imdb_id %>'><%= movie.title %> - <%= movie.year %></a></li>
   <% end %>
 </ul>
+<% end %>
+<br/>
+<br/>
+<a href="/">New Search</a>

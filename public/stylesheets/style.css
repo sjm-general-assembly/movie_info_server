@@ -18,14 +18,18 @@ h2 {
   margin: 5px 0 40px 0;
 }
 */
-.container
-{
+table {
+  border: 1px;
+  padding: 10px;
+}
+
+.container {
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 	border: solid 1px black;
 }
-.error_msg
-{
+
+.error_msg {
       color: red;
 }
