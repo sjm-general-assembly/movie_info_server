@@ -1,6 +1,6 @@
 <h1><%= @page_header %></h1>
 <% if @page_error %>
-<div class='col-lg-6 error_msg'> No results returned. Check movie title and try again.</div>
+<div class='col-lg-6 error_msg'><p>No results returned. Check movie title and try again.</p></div>
 <% else %>
 <ul>
   <% @movie_list.each do |movie| %>
@@ -8,7 +8,3 @@
   <% end %>
 </ul>
 <% end %>
-<br/>
-<br/>
-<a href="/">New Search</a>
-<br/>

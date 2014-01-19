@@ -63,7 +63,6 @@ get '/poster/:imdb_id' do |imdb_id|
   @movie.get_imdb_fields(result_hash)
 
   @page_title = "Movie Search Results"
-  @page_header = "Movie Results"  
 
   erb :movie_poster
 

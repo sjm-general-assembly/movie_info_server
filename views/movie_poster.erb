@@ -1,80 +1,39 @@
       <div class="jumbotron">
-        <h1>Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+        <h1><%= @movie.title %></h1>
+        <img class="imdb_movie_poster" src='<%= @movie.poster_url %>'/>
       </div>
 
       <div class="row marketing">
         <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h4>Title:</h4>
+          <p><%= @movie.title %></p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <h4>Release Date:</h4>
+          <p><%= @movie.released %></p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>Director:</h4>
+          <p><%= @movie.director %></p>
+
+          <h4>Plot:</h4>
+          <p><%= @movie.plot %></p>
         </div>
 
         <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h4>Rated:</h4>
+          <p><%= @movie.rated %></p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <h4>Runtime:</h4>
+          <p><%= @movie.runtime %></p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>Genre:</h4>
+          <p><%= @movie.genre %></p>
+
+          <h4>Actors:</h4>
+          <p><% @movie.actors.each do |actor|  %>
+            <%= actor %><br/>
+          <% end %></p>
+
+          <h4>IMDB link:</h4>
+          <p><a href="<%= @movie.imdb_url%>"><%= @movie.imdb_url%></p>
         </div>
       </div>
-
-<h1><%= @page_header %></h1>
-<h3><%= @movie.title %></h3>
-<img src='<%= @movie.poster_url %>'/>
-<br/>
-<br/>
-<table>
-	<tr>
-    	<th>Title:</th>
-    	<td><%= @movie.title %></td>
-  	</tr>
-	<tr>
-    	<th>Release Date:</th>
-    	<td><%= @movie.released %></td>
-  	</tr>
-	<tr>
-    	<th>Plot:</th>
-    	<td><%= @movie.plot %></td>
-  	</tr>
-	<tr>
-    	<th>Rated:</th>
-    	<td><%= @movie.rated %></td>
-  	</tr>
-	<tr>
-    	<th>Runtime:</th>
-    	<td><%= @movie.runtime %></td>
-  	</tr>
-	<tr>
-    	<th>Genre:</th>
-    	<td><%= @movie.genre %></td>
-  	</tr>
-	<tr>
-    	<th>Director:</th>
-    	<td><%= @movie.director %></td>
-  	</tr>
-	<tr>
-    	<th>Actors:</th>
-    	<td><% @movie.actors.each do |actor|  %>
-    		<%= actor %><br/>
-    		<% end %>
-    	</td>
-  	</tr>
-	<tr>
-    	<th>IMDB link:</th>
-    	<td><a href="<%= @movie.imdb_url%>"><%= @movie.imdb_url%></td>
-  	</tr>
-</table> 
-<br/>
-<a href="/">New Search</a>
-<br/>
-
