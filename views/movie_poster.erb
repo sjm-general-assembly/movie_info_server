@@ -2,47 +2,48 @@
 <h3><%= @movie.title %></h3>
 <img src='<%= @movie.poster_url %>'/>
 <br/>
+<br/>
 <table>
 	<tr>
-    	<td>Title:</td>
+    	<th>Title:</th>
     	<td><%= @movie.title %></td>
   	</tr>
 	<tr>
-    	<td>Release Date:</td>
+    	<th>Release Date:</th>
     	<td><%= @movie.released %></td>
   	</tr>
 	<tr>
-    	<td>Plot:</td>
+    	<th>Plot:</th>
     	<td><%= @movie.plot %></td>
   	</tr>
 	<tr>
-    	<td>Rated:</td>
+    	<th>Rated:</th>
     	<td><%= @movie.rated %></td>
   	</tr>
 	<tr>
-    	<td>Runtime:</td>
+    	<th>Runtime:</th>
     	<td><%= @movie.runtime %></td>
   	</tr>
 	<tr>
-    	<td>Genre:</td>
+    	<th>Genre:</th>
     	<td><%= @movie.genre %></td>
   	</tr>
 	<tr>
-    	<td>Director:</td>
+    	<th>Director:</th>
     	<td><%= @movie.director %></td>
   	</tr>
 	<tr>
-    	<td>Actors:</td>
+    	<th>Actors:</th>
     	<td><% @movie.actors.each do |actor|  %>
     		<%= actor %><br/>
     		<% end %>
     	</td>
   	</tr>
 	<tr>
-    	<td>IMDB link:</td>
+    	<th>IMDB link:</th>
     	<td><a href="<%= @movie.imdb_url%>"><%= @movie.imdb_url%></td>
   	</tr>
 </table> 
 <br/>
-<br/>
 <a href="/">New Search</a>
+<br/>
