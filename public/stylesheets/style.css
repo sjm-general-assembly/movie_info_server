@@ -7,3 +7,11 @@
   color: red;
   height: 50px;
 }
+
+.my_header {
+  background-color:  #34495e;  /* wet asphalt */
+}
+
+body {
+  background-color: #95a5a6;   /* concrete */
+}
